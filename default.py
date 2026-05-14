@@ -1,6 +1,5 @@
 import sys
 import os
-#import urllib
 
 import xbmc
 import xbmcaddon
@@ -32,6 +31,7 @@ def report(message, level=xbmc.LOGNOTICE, user_message=None):
     if user_message:
         xbmc.executebuiltin('Notification("%s","%s",)' % (__addonID__, user_message))
 
+
 arguments = sys.argv
 
 if len(arguments) > 1:
@@ -46,12 +46,11 @@ if len(arguments) > 1:
     report(loc_str)
     loc_str = "Camera %s"
 
-    item = [loc_str % '1', loc_str % '2', loc_str % '3', loc_str % '4']
-    cam = [__addon__.getSetting('cam1'), __addon__.getSetting('cam2'), __addon__.getSetting('cam3'), __addon__.getSetting('cam4')]
-    loc = [__addon__.getSetting('loc1'), __addon__.getSetting('loc2'), __addon__.getSetting('loc3'), __addon__.getSetting('loc4')]
-
-    #mode = urllib.unquote_plus(params.get('mode', ''))
-    #if mode is '':
+    item = [loc_str % '1', loc_str % '2', loc_str % '3', loc_str % '4', loc_str % '5', loc_str % '6']
+    cam = [__addon__.getSetting('cam1'), __addon__.getSetting('cam2'), __addon__.getSetting('cam3'), 
+           __addon__.getSetting('cam4'), __addon__.getSetting('cam5'), __addon__.getSetting('cam6')]
+    loc = [__addon__.getSetting('loc1'), __addon__.getSetting('loc2'), __addon__.getSetting('loc3'),
+           __addon__.getSetting('loc4'), __addon__.getSetting('loc5'), __addon__.getSetting('loc6')]
 
     cams = 0
     for i in range(int(__addon__.getSetting('numcams'))):
@@ -64,7 +63,7 @@ if len(arguments) > 1:
         _listitem = '%s - %s' %(item[i], loc[i])
         if loc[i] == '':
             _listitem = '%s - %s' %(item[i], item[i])
-        li = xbmcgui.ListItem(_listitem, iconImage =icon)
+        li = xbmcgui.ListItem(_listitem, iconImage=icon)
         #Matrix-API:
         #li = xbmcgui.ListItem(label=loc[i] if loc[i] != '' else item[i], label2=item[i])
         #icon = xbmcvfs.translatePath(os.path.join( __iconpath__, 'ipcam_%s.png' % (i + 1)))

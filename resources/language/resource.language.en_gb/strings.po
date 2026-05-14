@@ -57,29 +57,45 @@ msgid "Stream URL Camera 1"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Stream URL Camera 2"
-msgstr ""
-
-msgctxt "#30023"
-msgid "Stream URL Camera 3"
-msgstr ""
-
-msgctxt "#30024"
-msgid "Stream URL Camera 4"
-msgstr ""
-
-msgctxt "#30025"
 msgid "Location Camera 1"
 msgstr ""
 
+msgctxt "#30023"
+msgid "Stream URL Camera 2"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Location URL Camera 2"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Stream URL Camera 3"
+msgstr ""
+
 msgctxt "#30026"
-msgid "Location Camera 2"
+msgid "Location Camera 3"
 msgstr ""
 
 msgctxt "#30027"
-msgid "Location Camera 3"
+msgid "Stream URL Camera 4"
 msgstr ""
 
 msgctxt "#30028"
 msgid "Location Camera 4"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Stream URL Camera 5"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Location Camera 5"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Stream URL Camera 6"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Location Camera 6"
 msgstr ""
