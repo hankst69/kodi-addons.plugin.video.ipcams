@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.ipcams" name="Surveillance Cameras" version="0.0.4" provider-name="Birger Jesch">
+<addon id="plugin.video.ipcams" name="Surveillance Cameras" version="0.0.5" provider-name="Jesch, Hanke">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
   </requires>
@@ -17,7 +17,7 @@
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
     <forum></forum>
     <website></website>
-    <email>birger.jesch@gmail.com</email>
-    <source>https://github.com/b-jesch/plugin.video.ipcams</source>
+    <email></email>
+    <source> https://github.com/hankst69/kodi-addons.plugin.video.ipcams.git</source>
   </extension>
 </addon>

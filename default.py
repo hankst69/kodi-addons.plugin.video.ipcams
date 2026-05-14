@@ -1,17 +1,19 @@
 import sys
 import os
-import urllib
+#import urllib
+
 import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
+#import xbmcvfs #Matrix
+
 
 __addon__ = xbmcaddon.Addon()
 __addonID__ = __addon__.getAddonInfo('id')
 __addonname__ = __addon__.getAddonInfo('name')
 __path__ = __addon__.getAddonInfo('path')
 
-__LS__ = __addon__.getLocalizedString
 
 def paramsToDict(parameters):
 
@@ -24,8 +26,11 @@ def paramsToDict(parameters):
                 paramDict[paramSplits[0]] = paramSplits[1]
     return paramDict
 
-def writeLog(message, level=xbmc.LOGNOTICE):
-    xbmc.log('[%s] %s' % (__addonID__, message.encode('utf-8', errors='ignore')), level)
+
+def report(message, level=xbmc.LOGNOTICE, user_message=None):
+    xbmc.log('[%s] %s' % (__addonID__, message), level)
+    if user_message:
+        xbmc.executebuiltin('Notification("%s","%s",)' % (__addonID__, user_message))
 
 arguments = sys.argv
 
@@ -36,27 +41,45 @@ if len(arguments) > 1:
         arguments[1] = arguments[1][1:]
 
     params = paramsToDict(arguments[1])
-    mode = urllib.unquote_plus(params.get('mode', ''))
 
-    item = [__LS__(30011) % ('1'), __LS__(30011) % ('2'), __LS__(30011) % ('3')]
-    cam  = [__addon__.getSetting('cam1'), __addon__.getSetting('cam2'), __addon__.getSetting('cam3')]
-    loc  = [__addon__.getSetting('loc1'), __addon__.getSetting('loc2'), __addon__.getSetting('loc3')]
+    loc_str = __addon__.getLocalizedString(30011)
+    report(loc_str)
+    loc_str = "Camera %s"
 
+    item = [loc_str % '1', loc_str % '2', loc_str % '3', loc_str % '4']
+    cam = [__addon__.getSetting('cam1'), __addon__.getSetting('cam2'), __addon__.getSetting('cam3'), __addon__.getSetting('cam4')]
+    loc = [__addon__.getSetting('loc1'), __addon__.getSetting('loc2'), __addon__.getSetting('loc3'), __addon__.getSetting('loc4')]
 
-if mode is '':
-    _atleast = False
+    #mode = urllib.unquote_plus(params.get('mode', ''))
+    #if mode is '':
+
+    cams = 0
     for i in range(int(__addon__.getSetting('numcams'))):
+
+        #Helix-API:
         icon = xbmc.translatePath(os.path.join( __path__,'resources', 'lib', 'media', 'ipcam_%s.png' % (i + 1)))
-        _listitem = '%s - %s' %(item[i], loc[i]) if loc[i] != '' else item[i]
+        #Matrix-API:
+        #icon = xbmcvfs.translatePath(os.path.join( __iconpath__, 'ipcam_%s.png' % (i + 1)))
+
+        _listitem = '%s - %s' %(item[i], loc[i])
+        if loc[i] == '':
+            _listitem = '%s - %s' %(item[i], item[i])
         li = xbmcgui.ListItem(_listitem, iconImage =icon)
+        #Matrix-API:
+        #li = xbmcgui.ListItem(label=loc[i] if loc[i] != '' else item[i], label2=item[i])
+        #icon = xbmcvfs.translatePath(os.path.join( __iconpath__, 'ipcam_%s.png' % (i + 1)))
+        #li.setArt({'icon': icon, 'fanart': __fanart__})
+
         li.setProperty('isPlayable', 'true')
         li.setInfo('video', {'tag': 'Documentary'})
 
         if cam[i] != '':
             xbmcplugin.addDirectoryItem(_addonHandle, cam[i], li)
-            _atleast = True
+            cams += 1
+        else:
+            break
 
-if _atleast:
-    xbmcplugin.endOfDirectory(_addonHandle)
-else:
-    xbmcgui.Dialog().ok(__addonname__, __LS__(30015))
+    if cams > 0:
+        xbmcplugin.endOfDirectory(_addonHandle)
+    else:
+        xbmcgui.Dialog().ok(__addonname__, __addon__.getLocalizedString(30015))

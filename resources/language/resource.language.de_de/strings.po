@@ -1,7 +1,7 @@
 # XBMC Media Center language file
 # Addon Name: Surveillance Cameras
 # Addon id: plugin.video.ipcams
-# Addon version: 0.0.2
+# Addon version: 0.0.5
 # Addon Provider: brat, BJ1
 msgid ""
 msgstr ""
@@ -37,6 +37,9 @@ msgctxt "#30011"
 msgid "Camera %s"
 msgstr "Kamera %s"
 
+#Error messages
+#empty strings from id 30012 to 30014
+
 msgctxt "#30015"
 msgid "There ar no stream urls defined in settings. Please define at least one url."
 msgstr "Es wurden keine Stream-URLs definiert. Bitte trage mindestens eine URL in den Einstellungen des Addons ein."
@@ -57,6 +60,10 @@ msgctxt "#30023"
 msgid "Stream URL Camera 3"
 msgstr "Stream-URL Kamera 3"
 
+msgctxt "#30024"
+msgid "Stream URL Camera 4"
+msgstr "Stream-URL Kamera 4"
+
 msgctxt "#30025"
 msgid "Location Camera 1"
 msgstr "Standort Kamera 1"
@@ -68,3 +75,7 @@ msgstr "Standort Kamera 2"
 msgctxt "#30027"
 msgid "Location Camera 3"
 msgstr "Standort Kamera 3"
+
+msgctxt "#30028"
+msgid "Location Camera 4"
+msgstr "Standort Kamera 4"
