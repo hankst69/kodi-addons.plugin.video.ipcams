@@ -65,7 +65,7 @@ msgid "Stream URL Camera 2"
 msgstr ""
 
 msgctxt "#30024"
-msgid "Location URL Camera 2"
+msgid "Location Camera 2"
 msgstr ""
 
 msgctxt "#30025"

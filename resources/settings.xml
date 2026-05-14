@@ -12,6 +12,6 @@
     <setting id="loc4" type="text" label="30028" value="" default="" visible="gt(-9,2)" />
     <setting id="cam5" type="text" label="30029" value="" default="" visible="gt(-10,3)" />
     <setting id="loc5" type="text" label="30030" value="" default="" visible="gt(-11,3)" />
-    <setting id="cam6" type="text" label="30031" value="" default="" visible="gt(-10,3)" />
-    <setting id="loc6" type="text" label="30032" value="" default="" visible="gt(-11,3)" />
+    <setting id="cam6" type="text" label="30031" value="" default="" visible="gt(-12,4)" />
+    <setting id="loc6" type="text" label="30032" value="" default="" visible="gt(-13,4)" />
 </settings>
